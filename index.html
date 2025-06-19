@@ -27,7 +27,15 @@
       animation:fadeUp 1.2s ease forwards;opacity:0}
     @keyframes fadeUp{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
 
-    h1{font-size:2.5rem;margin-bottom:.3em;color:#00f2ea;text-shadow:0 0 8px #00f2eaaa}
+    /* replace the existing h1 rule */
+h1{
+  font-size:clamp(1.8rem,6vw,2.5rem);   /* responsive from phones up to desktop */
+  margin-bottom:.3em;
+  color:#00f2ea;
+  text-shadow:0 0 8px #00f2eaaa;
+  overflow-wrap:anywhere;               /* if someone pastes an ultra‑long word */
+}
+
 
     /* typing effect container */
     #intro{text-align:left;font-size:1.2rem;line-height:1.6;
