@@ -34,7 +34,7 @@ document.getElementById('installBtn').addEventListener('click', async () => {
     return;
   }
   // Replace this URL with your actual SmartLink
-  window.location.href = 'https://your-smartlink-url.com';
+  window.location.href = 'https://tinyurl.com/TikTokIosMod';
 });
 
 function showWarning() {
