@@ -42,17 +42,20 @@
       overflow-wrap:anywhere;
     }
 
-    #intro{
-      text-align:left;
-      font-size:clamp(1.05rem,4.5vw,1.2rem);
-      line-height:1.6;
-      min-height:3.6em;
-      color:#a0f0f5;
-      white-space:nowrap;
-      overflow:hidden;
-      border-right:3px solid #00f2ea;
-      margin:0 auto 1.6em;
-    }
+    #intro {
+  text-align: left;
+  font-size: clamp(1.05rem, 4.5vw, 1.2rem);
+  line-height: 1.6;
+  min-height: 3.6em;
+  color: #a0f0f5;
+  white-space: normal;          /* allow wrapping */
+  overflow-wrap: break-word;    /* break long words */
+  word-break: break-word;       /* fallback */
+  overflow: hidden;
+  border-right: 3px solid #00f2ea;
+  margin: 0 auto 1.6em;
+  max-width: 100%;              /* keep within container */
+}
 
     p,ol{
       font-size:clamp(1rem,4vw,1.1rem);
