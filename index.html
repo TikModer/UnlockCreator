@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -6,9 +7,7 @@
   <title>TikTok Monetization  Unlock – USA iOS Exclusive</title>
   <meta name="description" content="Unlock TikTok Monetization on your iPhone! USA iOS users only." />
 
-  <!-- ======  CSS (inline)  ====== -->
   <style>
-    /* reset + base */
     *{box-sizing:border-box;margin:0;padding:0}
     body{
       font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
@@ -17,45 +16,83 @@
       animation:bgMove 20s ease infinite;
       color:#e0e0e0;
       display:flex;flex-direction:column;align-items:center;justify-content:center;
-      min-height:100vh;text-align:center;padding:20px;overflow-x:hidden}
+      min-height:100vh;text-align:center;
+      padding:clamp(16px,4vw,40px);
+      gap:clamp(20px,4vw,48px);
+      overflow-x:hidden;
+    }
     @keyframes bgMove{0%{background-position:0 50%}50%{background-position:100% 50%}100%{background-position:0 50%}}
 
     header{
-      max-width:480px;background:rgba(0,242,234,.05);
-      padding:30px 32px;border-radius:14px;
+      width:min(100%,480px);
+      background:rgba(0,242,234,.05);
+      padding:30px 32px;
+      border-radius:14px;
       box-shadow:0 0 25px #00f2ea44;
-      animation:fadeUp 1.2s ease forwards;opacity:0}
+      animation:fadeUp 1.2s ease forwards;
+      opacity:0;
+    }
     @keyframes fadeUp{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
 
-    /* replace the existing h1 rule */
-h1{
-  font-size:clamp(1.8rem,6vw,2.5rem);   /* responsive from phones up to desktop */
-  margin-bottom:.3em;
-  color:#00f2ea;
-  text-shadow:0 0 8px #00f2eaaa;
-  overflow-wrap:anywhere;               /* if someone pastes an ultra‑long word */
-}
+    h1{
+      font-size:clamp(1.8rem,6vw,2.5rem);
+      margin-bottom:.3em;
+      color:#00f2ea;
+      text-shadow:0 0 8px #00f2eaaa;
+      overflow-wrap:anywhere;
+    }
 
+    #intro{
+      text-align:left;
+      font-size:clamp(1.05rem,4.5vw,1.2rem);
+      line-height:1.6;
+      min-height:3.6em;
+      color:#a0f0f5;
+      white-space:nowrap;
+      overflow:hidden;
+      border-right:3px solid #00f2ea;
+      margin:0 auto 1.6em;
+    }
 
-    /* typing effect container */
-    #intro{text-align:left;font-size:1.2rem;line-height:1.6;
-      min-height:3.6em;color:#a0f0f5;white-space:nowrap;overflow:hidden;
-      border-right:3px solid #00f2ea;margin:0 auto 1.6em}
-
-    p,ol{font-size:1.1rem;color:#ccc;margin-bottom:1em;text-align:left}
+    p,ol{
+      font-size:clamp(1rem,4vw,1.1rem);
+      color:#ccc;
+      margin-bottom:1em;
+      text-align:left;
+    }
     ol{padding-left:20px}
 
     button{
-      background:#00f2ea;border:none;color:#000;font-weight:bold;
-      font-size:1.25rem;padding:15px 32px;border-radius:50px;cursor:pointer;
-      box-shadow:0 0 20px #00f2eaaa;transition:background .3s,box-shadow .3s;
-      user-select:none;margin-top:20px}
+      font-size:clamp(1.1rem,4.5vw,1.3rem);
+      padding:clamp(12px,3.5vw,15px) clamp(24px,6vw,32px);
+      background:#00f2ea;
+      border:none;
+      color:#000;
+      font-weight:bold;
+      border-radius:50px;
+      cursor:pointer;
+      box-shadow:0 0 20px #00f2eaaa;
+      transition:background .3s,box-shadow .3s;
+      user-select:none;
+      margin-top:20px;
+    }
     button:hover:not(:disabled){animation:pulse 2s infinite;background:#00c6b5;box-shadow:0 0 30px #00c6b5ee}
     @keyframes pulse{0%,100%{box-shadow:0 0 30px #00c6b5ee}50%{box-shadow:0 0 50px #00f2eaee}}
     button:disabled{background:#555;cursor:not-allowed;box-shadow:none}
 
-    .warning{margin-top:2em;font-size:1.1rem;color:#f44336;opacity:0;transition:opacity .4s}
+    .warning{
+      margin-top:2em;
+      font-size:1.1rem;
+      color:#f44336;
+      opacity:0;
+      transition:opacity .4s;
+    }
     .warning.show{opacity:1}
+
+    @media (max-height:500px){
+      body{padding-top:8px;padding-bottom:8px;}
+      header{padding:20px 16px;}
+    }
   </style>
 </head>
 
@@ -75,15 +112,12 @@ h1{
     <p id="warn" class="warning">Sorry — this unlock works only on iPhone devices in the USA.</p>
   </header>
 
-  <!-- ======  JS (inline)  ====== -->
   <script>
-    // ---------- typing effect ----------
     const introEl=document.getElementById('intro');
     const text="USA iPhone users only: enable TikTok's hidden monetization feature even with fewer than 1 000 followers.";
     function type(t,i=0){if(i<t.length){introEl.textContent+=t.charAt(i);setTimeout(()=>type(t,i+1),38);} }
     type(text);
 
-    // ---------- geo & device gate ----------
     const btn=document.getElementById('install'), warn=document.getElementById('warn');
     async function allowUSiOS(){
       try{
@@ -106,3 +140,4 @@ h1{
   </script>
 </body>
 </html>
+
